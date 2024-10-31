@@ -1,7 +1,7 @@
 # calculator
 Online calculator.
 
-**Link to Project:** TBA
+**Link to Project:** https://maximilianovalle.github.io/calculator/
 
 ![](demo.gif) TBA
 
