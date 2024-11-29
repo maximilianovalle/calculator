@@ -1,0 +1,41 @@
+body {
+    margin: 0px;
+
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 16px;
+
+    background: #071013;
+}
+
+#calculator {
+    max-width: 500px;
+    min-height: 500px;
+    margin: 0px auto;
+    margin-top: 60px;
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    background: blue;
+}
+
+#screen {
+    max-width: 500px;
+    min-height: 150px;
+    margin: 0px auto;
+    margin-bottom: 12px;
+
+    background: red;
+}
+
+.row {
+    max-width: 500px;
+    min-height: 90px;
+    margin: 0px auto;
+
+    background: yellow;
+}
+
+.bottomMargin {
+    margin-bottom: 8px;
+}
