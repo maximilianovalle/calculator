@@ -4,19 +4,20 @@ body {
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 16px;
 
-    background: #071013;
+    background: #1f2224;
 }
 
 #calculator {
     max-width: 500px;
-    min-height: 500px;
-    margin: 0px auto;
-    margin-top: 60px;
+    min-height: 600px;
+    margin: 60px auto;
     padding: 24px;
 
+    box-shadow: 10px 10px 4px #0e262e;
     box-sizing: border-box;
+    border-radius: 40px;
 
-    background: blue;
+    background: #464c50;
 }
 
 #screen {
@@ -24,18 +25,120 @@ body {
     min-height: 150px;
     margin: 0px auto;
     margin-bottom: 12px;
+    padding: 12px;
+
+    box-sizing: border-box;
+    border-radius: 40px;
 
     background: red;
 }
 
-.row {
+#input {
     max-width: 500px;
-    min-height: 90px;
+    min-height: 80px;
     margin: 0px auto;
+    margin-bottom: 12px;
+
+    border-radius: 40px;
 
     background: yellow;
 }
 
+#liveOutput {
+    max-width: 140px;
+    min-height: 40px;
+    margin-left: auto;
+
+    border-radius: 40px;
+
+    background: yellow;
+}
+
+/* buttons */
+
+.row {
+    display: flex;
+    gap: 0px 8px;
+    justify-content: space-evenly;
+
+    max-width: 500px;
+    min-height: 100px;
+    margin: 0px auto;
+    padding: 8px;
+
+    box-sizing: border-box;
+    border-radius: 40px;
+
+    background: yellow;
+}
+
+#bottomRow {
+    max-width: 375px;
+}
+
+.key {
+    width: 25%;
+    height: 90px;
+
+    border: none;
+    border-radius: 40px;
+
+    background: red;
+}
+
+#zeroKey {
+    width: 45%
+}
+
+/* footer */
+
+#footer {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 24px 12px;
+
+    box-sizing: border-box;
+    border-top: solid 1px #464c50;
+}
+
+#footerContent {
+    display: flex;
+    justify-content: space-between;
+    min-height: 80px;
+    padding: 8px;
+
+    background: red;
+}
+
+#buttons {
+    display: flex;
+    gap: 0px 8px;
+    justify-content: space-evenly;
+    width: 30%;
+    height: 80px;
+
+    background: yellow;
+}
+
+.button {
+    width: 30%;
+    height: 80px;
+
+    border: none;
+    border-radius: 40px;
+
+    background: blue;
+}
+
+#name {
+    width: 40%;
+    height: 80px;
+
+    background: yellow;
+}
+
+/* characteristics */
+/* 
 .bottomMargin {
     margin-bottom: 8px;
-}
+} */
