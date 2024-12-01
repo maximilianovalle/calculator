@@ -32,7 +32,7 @@ body {
     border-radius: 40px;
 
     color: #171a1d;
-    background: #86939c;
+    background: #86939c; 
 }
 
 #input {
@@ -45,7 +45,6 @@ body {
 }
 
 #inputContent {
-    text-align: right;
     font-size: 72px;
     line-height: 80px;
 
@@ -62,7 +61,6 @@ body {
 }
 
 #outputContent {
-    text-align: right;
     font-size: 32px;
     line-height: 40px;
 
@@ -149,7 +147,9 @@ body {
     padding: 24px 12px;
 
     box-sizing: border-box;
-    border-top: solid 1px #464c50;
+    border-top: solid 1px #86939c;
+
+    color: #86939c;
 }
 
 #footerContent {
@@ -166,21 +166,14 @@ body {
     height: 80px;
 }
 
-.button {
-    width: 85px;
-    height: 80px;
-
-    border: none;
-    border-radius: 40px;
-
-    background: blue;
-}
-
 #name {
     width: 40%;
     height: 80px;
+}
 
-    background: yellow;
+#nameContent {
+    font-size: 18px;
+    line-height: 80px;
 }
 
 /* characteristics */
@@ -194,4 +187,8 @@ body {
     margin: 0px;
     margin-left: auto;
     min-width: 75%;
+}
+
+.rightAlign {
+    text-align: right;
 }
