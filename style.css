@@ -147,14 +147,14 @@ body {
     padding: 24px 12px;
 
     box-sizing: border-box;
-    border-top: solid 1px #86939c;
+    border-top: solid 1px #464c50;
 
     color: #86939c;
 }
 
 #footerContent {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
     min-height: 80px;
 }
 
@@ -164,16 +164,7 @@ body {
     justify-content: space-evenly;
     width: 30%;
     height: 80px;
-}
-
-#name {
-    width: 40%;
-    height: 80px;
-}
-
-#nameContent {
-    font-size: 18px;
-    line-height: 80px;
+    margin: 0px auto;
 }
 
 /* characteristics */
