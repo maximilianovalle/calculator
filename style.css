@@ -1,3 +1,13 @@
+/*
+
+bg: #1f2224 [1]
+calc: #464c50 [2]
+calc shadow: #171a1b [3]
+screen: #86939c [4]
+screen shadow: #353b3f [5]
+
+*/
+
 body {
     margin: 0px;
 
@@ -13,7 +23,7 @@ body {
     margin: 60px auto;
     padding: 24px;
 
-    box-shadow: 10px 10px 4px #0e262e;
+    box-shadow: 4px 4px 4px #171a1b;
     box-sizing: border-box;
     border-radius: 40px;
 
@@ -27,10 +37,12 @@ body {
     margin-bottom: 12px;
     padding: 12px;
 
+    box-shadow: 2px 4px 4px #30373b;
     box-sizing: border-box;
     border-radius: 40px;
+    /* border: solid 3px #171a1b; */
 
-    background: red;
+    background: #86939c;
 }
 
 #input {
@@ -38,8 +50,9 @@ body {
     min-height: 80px;
     margin: 0px auto;
     margin-bottom: 12px;
+    padding: 8px;
 
-    border-radius: 40px;
+    box-sizing: border-box;
 
     background: yellow;
 }
@@ -48,8 +61,9 @@ body {
     max-width: 140px;
     min-height: 40px;
     margin-left: auto;
+    padding: 8px;
 
-    border-radius: 40px;
+    box-sizing: border-box;
 
     background: yellow;
 }
@@ -58,18 +72,15 @@ body {
 
 .row {
     display: flex;
-    gap: 0px 8px;
+    gap: 0px 4px;
     justify-content: space-evenly;
 
     max-width: 500px;
-    min-height: 100px;
+    min-height: 90px;
     margin: 0px auto;
-    padding: 8px;
+    padding: 4px 8px;
 
     box-sizing: border-box;
-    border-radius: 40px;
-
-    background: yellow;
 }
 
 #bottomRow {
@@ -78,12 +89,45 @@ body {
 
 .key {
     width: 25%;
-    height: 90px;
+    height: 80px;
 
-    border: none;
-    border-radius: 40px;
+    box-shadow: 2px 2px 4px #30373b;
+    border: solid 2px #3a3f42;
+    border-radius: 16px;
 
-    background: red;
+    background: #464c50;
+}
+
+.key:hover {
+    box-shadow: 0px 0px 0px #30373b;
+
+    background: #3a3f42;
+}
+
+.orangeKey {
+    box-shadow: 2px 2px 4px #473825;
+    border: solid 2px #865009;
+
+    background: #c7770f;
+}
+
+.orangeKey:hover {
+    box-shadow: 0px 0px 0px #30373b;
+
+    background: #9e5e0b;
+}
+
+.greyKey {
+    box-shadow: 2px 2px 4px #30373b;
+    border: solid 2px #40464b;
+
+    background: #6f787e;
+}
+
+.greyKey:hover {
+    box-shadow: 0px 0px 0px #30373b;
+
+    background: #40464b;
 }
 
 #zeroKey {
@@ -121,7 +165,7 @@ body {
 }
 
 .button {
-    width: 30%;
+    width: 85px;
     height: 80px;
 
     border: none;
@@ -136,9 +180,3 @@ body {
 
     background: yellow;
 }
-
-/* characteristics */
-/* 
-.bottomMargin {
-    margin-bottom: 8px;
-} */
