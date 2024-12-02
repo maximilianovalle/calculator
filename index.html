@@ -20,54 +20,54 @@
         <div id="screen">
 
             <div id="input">
-                <p id="inputContent" class="text content rightAlign">1 x 2</p>
+                <p id="inputContent" class="text content rightAlign"></p>
             </div>
 
             <div id="liveOutput">
-                <p id="outputContent" class="text content rightAlign">2</p>
+                <p id="outputContent" class="text content rightAlign"></p>
             </div>
 
         </div>
 
         <div class="row">
 
-            <button class="key greyKey text">AC</button>
-            <button class="key greyKey text">+/-</button>
-            <button class="key greyKey text">Dlt</button>
-            <button class="key orangeKey text">/</button>
+            <button class="key greyKey text" onclick="clearScreen()">AC</button>
+            <button class="key greyKey text" onclick="changePositiveNegative()">+/-</button>
+            <button class="key greyKey text" onclick="deleteLastInput()">Dlt</button>
+            <button class="key orangeKey text" onclick="storeOperator('/')">/</button>
 
         </div>
 
         <div class="row">
 
-            <button class="key text">7</button>
-            <button class="key text">8</button>
-            <button class="key text">9</button>
-            <button class="key orangeKey text">X</button>
+            <button class="key text" onclick="storeNum('7')">7</button>
+            <button class="key text" onclick="storeNum('8')">8</button>
+            <button class="key text" onclick="storeNum('9')">9</button>
+            <button class="key orangeKey text" onclick="storeOperator('X')">X</button>
 
         </div>
 
         <div class="row">
 
-            <button class="key text">4</button>
-            <button class="key text">5</button>
-            <button class="key text">6</button>
-            <button class="key orangeKey text">-</button>
+            <button class="key text" onclick="storeNum('4')">4</button>
+            <button class="key text"  onclick="storeNum('5')">5</button>
+            <button class="key text"  onclick="storeNum('6')">6</button>
+            <button class="key orangeKey text" onclick="storeOperator('-')">-</button>
 
         </div>
 
         <div class="row">
 
-            <button class="key text">1</button>
-            <button class="key text">2</button>
-            <button class="key text">3</button>
-            <button class="key orangeKey text">+</button>
+            <button class="key text"  onclick="storeNum('1')">1</button>
+            <button class="key text"  onclick="storeNum('2')">2</button>
+            <button class="key text"  onclick="storeNum('3')">3</button>
+            <button class="key orangeKey text" onclick="storeOperator('+')">+</button>
 
         </div>
         
         <div id="bottomRow" class="row">
 
-            <button id="zeroKey" class="key text">0</button>
+            <button id="zeroKey" class="key text" onclick="storeNum('0')">0</button>
             <button id="dotKey" class="key text">.</button>
             <button id="equalKey" class="key orangeKey text">=</button>
 

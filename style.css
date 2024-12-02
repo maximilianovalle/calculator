@@ -45,10 +45,11 @@ body {
 }
 
 #inputContent {
+    height: 80px;
+
     font-size: 72px;
     line-height: 80px;
-
-    height: 80px;
+    white-space: nowrap;
 }
 
 #liveOutput {
@@ -61,10 +62,11 @@ body {
 }
 
 #outputContent {
+    height: 40px;
+    
     font-size: 32px;
     line-height: 40px;
-
-    height: 40px;
+    white-space: nowrap;
 }
 
 /* buttons */
