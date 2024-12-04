@@ -1,23 +1,41 @@
 // OPERATIONS
 
-function addNums(num1, num) {
+function addNums(num1, num2) {
+    if (typeof(num1) != "number" || typeof(num2) != "number") {
+        return "NaN";
+    }
+
     return (num1 + num2);
 }
 
 function subtractNums(num1, num2) {
+    if (typeof(num1) != "number" || typeof(num2) != "number") {
+        return "NaN";
+    }
+
     return (num1 - num2);
 }
 
 function multiplyNums(num1, num2) {
+    if (typeof(num1) != "number" || typeof(num2) != "number") {
+        return "NaN";
+    }
+
     return (num1 * num2);
 }
 
 function divideNums(num1, num2) {
+    if (typeof(num1) != "number" || typeof(num2) != "number" || num2 == 0) {
+        return "NaN";
+    }
+
     return (num1 / num2);
 }
 
 let num1 = "", num2 = "", operator = "", currInput = "", currOutput = "";
-let num1Stored = false, operatorStored = false, inputDone = false, num1positive = true, num2positive = true;
+let num1Size = 0, num2Size = 0;
+let operatorStored = false;
+
 
 // SCREEN DISPLAY
 
@@ -31,6 +49,13 @@ function displayOutput() {
     outputScreen.textContent = currOutput;
 }
 
+function updateScreenDisplay() {
+    updateCurrInput();
+    updateCurrOutput();
+    displayInput();
+    displayOutput();
+}
+
 function updateCurrInput() {
     currInput = num1;
 
@@ -38,37 +63,40 @@ function updateCurrInput() {
         currInput += " " + operator;
     }
 
-    if (num1Stored == true) {
+    if (num2Size > 0) {
         currInput += " " + num2;
     }
 }
 
 function updateCurrOutput() {
-    if (num1Stored == true && operatorStored == true) {
+    if (operatorStored == true && num2Size > 0) {
 
         switch(operator) {
             case "/":
-                if (Number(num2) == 0) { currOutput = "ERROR"; }
-                else { currOutput = Number(num1) / Number(num2); }
+                currOutput = divideNums(Number(num1), Number(num2));
                 break;
 
             case "X":
-                currOutput = Number(num1) * Number(num2);
+                currOutput = multiplyNums(Number(num1), Number(num2));
                 break;
 
             case "-":
-                currOutput = Number(num1) - Number(num2);
+                currOutput = subtractNums(Number(num1), Number(num2));
                 break;
 
             case "+":
-                currOutput = Number(num1) + Number(num2);
+                currOutput = addNums(Number(num1), Number(num2));
                 break
 
             default:
-                currOutput = "ERROR";
+                currOutput = "NaN";
         }
 
+        if (!Number.isInteger(currOutput)) { currOutput = +currOutput.toFixed(2); }
+
     }
+
+    else { currOutput = ""; }
 }
 
 function resetValues() {
@@ -77,106 +105,163 @@ function resetValues() {
     operator = "";
     currInput = "";
     currOutput = "";
-    num1Stored = false;
     operatorStored = false;
-    inputDone = false;
     num1positive = true;
     num2positive = true;
+    outputPositive = true;
+    num1Size = 0;
+    num2Size = 0;
 }
 
 function clearScreen() {
     resetValues();
-    displayInput();
-    displayOutput();
+    updateScreenDisplay();
 }
 
 function deleteLastInput() {
-    if (operatorStored == true && num2.length > 0) {
+    if (operatorStored == true && num2Size > 0) {
         num2 = num2.substring(0, num2.length - 1);
+        num2Size--;
     }
 
     else if (operatorStored == true) {
         operator = "";
-        operatorStored = num1Stored = false;
+        operatorStored = false;
     }
 
     else {
         num1 = num1.substring(0, num1.length - 1);
+        num1Size--;
     }
 
-    updateCurrInput();
-    updateCurrOutput();
-    displayInput();
-    displayOutput();
+    updateScreenDisplay();
 }
+
 
 // STORE VALUES
 
 function storeNum(input) {
-    if (num1Stored == false && num1.length < 15) {
+    if (operatorStored == false && num1Size < 15) {
         num1 += input;
+        num1Size++;
 
-        if (num1.length > 1 && num1.charAt(0) == 0) {
+        if (num1Size > 1 && num1.charAt(0) == 0 && num1.charAt(1) != ".") {
             num1 = num1.substring(1);
+            num1Size--;
         }
-    }
-    
-    else if (num2.length < 15) {
-        num2 += input;
 
-        if (num2.length > 1 && num2.charAt(0) == 0) {
-            num2 = num2.substring(1);
+        else if (num1Size > 1 && num1.charAt(0) == '-' && num1.charAt(1) == 0) {
+            num1 = "-" + num1.substring(2);
+            num1Size--;
         }
     }
     
-    updateCurrInput();
-    updateCurrOutput();
-    displayInput();
-    displayOutput();
+    else if (operatorStored == true && num2Size < 15) {
+        num2 += input;
+        num2Size++;
+
+        if (num2Size > 1 && num2.charAt(0) == 0 && num2.charAt(1) != ".") {
+            num2 = num2.substring(1);
+            num2Size--;
+        }
+
+        else if (num2Size > 1 && num2.charAt(0) == '-' && num2.charAt(1) == 0) {
+            num2 = "-" + num2.substring(2);
+            num2Size--;
+        }
+    }
+    
+    updateScreenDisplay();
 }
 
 function storeOperator(input) {
-    if (num1.length < 1) {
+    if (num1Size < 1) {
         return;
     }
 
+    if (operatorStored == true) {
+        displayFinalResult();
+    }
+
     operator = input;
-    num1Stored = operatorStored = true;
+    operatorStored = true;
     updateCurrInput();
     displayInput();
 }
 
+function addDecimal() {
+    if (num2Size >= 0 && operatorStored == true && num2Size < 14) {
+        let decimal = false;
+        for (let i = 0; i < num2.length; i++) {
+            if (num2.charAt(i) == ".") {
+                decimal = true;
+            }
+        }
+        if (decimal == false && num2Size == 0) {
+            num2 = "0.";
+            num2Size = 1;
+        }
+        else if (decimal == false) { num2 += "."; }
+        else if (decimal == true) { num2 = num2.replace(".", ""); }
+    } 
+
+    else if (num1Size >= 0 && operatorStored == false) {
+        let decimal = false;
+        for (let i = 0; i < num1.length; i++) {
+            if (num1.charAt(i) == ".") {
+                decimal = true;
+            }
+        }
+        if (decimal == false && num1Size == 0) {
+            num1 = "0.";
+            num1Size = 1;
+        }
+        else if (decimal == false) { num1 += "."; }
+        else if (decimal == true) { num1 = num1.replace(".", ""); }
+    }
+
+    updateScreenDisplay();
+}
+
 function changePositiveNegative() {
-    if (operatorStored == true && num2.length > 0) {
-
-        if (num2positive == true) {
-            num2 = "-" + num2;
-            num2positive = false;
+    if (operatorStored == true) {
+        let negative = false;
+        if (num2.charAt(0) == "-") {
+            negative = true;
         }
-
-        else {
-            num2 = num2.substring(1);
-            num2positive = true;
+        if (negative == false && num2Size == 0) {
+            num2 = "-0";
+            num2Size = 1;
         }
-
+        else if (negative == false) { num2 = "-" + num2; }
+        else if (negative == true) { num2 = num2.slice(1); }
     }
 
-    else if (num1.length > 0) {
-
-        if (num1positive == true) {
-            num1 = "-" + num1;
-            num1positive = false;
+    else {
+        let negative = false;
+        if (num1.charAt(0) == "-") {
+            negative = true;
         }
-
-        else {
-            num1 = num1.substring(1);
-            num1positive = true;
+        if (negative == false && num1Size == 0) {
+            num1 = "-0";
+            num1Size = 1;
         }
-        
+        else if (negative == false) { num1 = "-" + num1; }
+        else if (negative == true) { num1 = num1.slice(1); }
     }
 
-    updateCurrInput();
-    updateCurrOutput();
-    displayInput();
-    displayOutput();
+    updateScreenDisplay();
+}
+
+function displayFinalResult() {
+    if (operatorStored == true && num2Size > 0) {
+        num1 = currOutput;
+        operator = "";
+        num2 = "";
+        num2Size = 0;
+
+        operatorStored = false;
+
+        updateScreenDisplay();
+    }
 }
