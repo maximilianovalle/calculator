@@ -3,7 +3,7 @@ Online calculator.
 
 **Link to Project:** https://maximilianovalle.github.io/calculator/
 
-![](demo.gif) TBA
+![](demo.mp4)
 
 ## How It's Made
 
