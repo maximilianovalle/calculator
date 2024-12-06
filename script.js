@@ -120,6 +120,7 @@ function clearScreen() {
 
 function deleteLastInput() {
     if (operatorStored == true && num2Size > 0) {
+        // if (char deleted is decimal or negative symbol) { increment num2size++ }
         num2 = num2.substring(0, num2.length - 1);
         num2Size--;
     }
@@ -130,6 +131,7 @@ function deleteLastInput() {
     }
 
     else {
+        // if (char deleted is decimal or negative symbol) { increment num1size++ }
         num1 = num1.substring(0, num1.length - 1);
         num1Size--;
     }
@@ -255,7 +257,7 @@ function changePositiveNegative() {
 
 function displayFinalResult() {
     if (operatorStored == true && num2Size > 0) {
-        num1 = currOutput;
+        num1 = currOutput.toString();
         operator = "";
         num2 = "";
         num2Size = 0;

@@ -21,7 +21,7 @@ body {
 }
 
 #screen {
-    max-width: 500px;
+    max-width: 95%;
     min-height: 150px;
     margin: 0px auto;
     margin-bottom: 12px;
@@ -29,7 +29,9 @@ body {
 
     box-shadow: 2px 4px 4px #30373b;
     box-sizing: border-box;
+    text-align: right;
     border-radius: 40px;
+
 
     color: #171a1d;
     background: #86939c; 
@@ -42,6 +44,7 @@ body {
     margin-bottom: 12px;
 
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 #inputContent {
@@ -50,6 +53,7 @@ body {
     font-size: 72px;
     line-height: 80px;
     white-space: nowrap;
+    float: right;
 }
 
 #liveOutput {
@@ -63,10 +67,11 @@ body {
 
 #outputContent {
     height: 40px;
-    
+
     font-size: 32px;
     line-height: 40px;
     white-space: nowrap;
+    float: right;
 }
 
 /* buttons */
