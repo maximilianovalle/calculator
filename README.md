@@ -3,7 +3,7 @@ Online calculator.
 
 **Link to Project:** https://maximilianovalle.github.io/calculator/
 
-![](demo.mp4)
+![](demo.gif)
 
 ## How It's Made
 
